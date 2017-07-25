@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生成绩</title>
+    <script type="text/javascript" src="./on_submit.js"></script>
+
+</head>
+<body>
+
+<form class="form-inline" action="" id="myForm" onSubmit="return judge()">
+    <div class="form-group">
+        <label class="sr-only" for="exampleInputName">姓名</label>
+        <input type="text" class="form-control1" id="exampleInputName" placeholder="姓名" maxlength="5" minlength="5">
+        <label class="sr-only" for="exampleInputNumber">学号</label>
+        <input type="number" class="form-control2" id="exampleInputNumber" placeholder="学号">
+        <label class="sr-only" for="exampleInputClass">班级</label>
+        <input type="text" class="form-control3" id="exampleInputClass" placeholder="班级">
+        <label class="sr-only" for="exampleInputNation">民族</label>
+        <input type="text" class="form-control4" id="exampleInputNation" placeholder="民族">
+        <label class="sr-only" for="exampleInputChinese">语文</label>
+        <input type="number" class="form-control5" id="exampleInputChinese" placeholder="语文">
+        <label class="sr-only" for="exampleInputMaths">数学</label>
+        <input type="number" class="form-control6" id="exampleInputMaths" placeholder="数学">
+        <label class="sr-only" for="exampleInputEnglish">英语</label>
+        <input type="number" class="form-control7" id="exampleInputEnglish" placeholder="英语">
+        <label class="sr-only" for="exampleInputProgram">编程</label>
+        <input type="number" class="form-control8" id="exampleInputProgram" placeholder="编程">
+    </div>
+    <button type="submit" class="btn btn-default" onclick="getInfor()">提交</button>
+</form>
+
+<div>
+    <label class="reserach" for="exampleGetInf">查询多个学生成绩信息</label>
+    <input type="text" class="research" id="exampleGetInf" placeholder="输入学生学号">
+</div>
+    <button type="submit" >查询</button>
+
+
+</body>
+</html>

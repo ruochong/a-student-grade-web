@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+            document.getElementById('myForm').addEventListener('submit', function (event) {
+                event.preventDefault();
+                var information={};
+
+                information.name=document.getElementById('exampleInputName').value;
+                var str=JSON.stringify(information);
+
+                localStorage.setItem(information.name,str);
+                i++;
+                return information;
+            })
+        });
+    </script>
+</head>
+<body>
+<table class="table table-bordered">
+    <tr>
+        <th>姓名</th>
+        <th>学号</th>
+        <th>班级</th>
+        <th>民族</th>
+        <th>语文</th>
+        <th>数学</th>
+        <th>英语</th>
+        <th>编程</th>
+
+    </tr>
+    <tr>
+        <th><input type="text"></th>
+        <th><input type="text"></th>
+        <th><input type="text"></th>
+        <th><input type="text"></th>
+        <th><input type="text"></th>
+        <th><input type="text"></th>
+        <th><input type="text"></th>
+        <th><input type="text"></th>
+    </tr>
+
+</table>
+</body>
+</html>
