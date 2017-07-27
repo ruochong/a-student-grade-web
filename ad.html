@@ -3,38 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <title>学生成绩</title>
+    <script src="http://libs.baidu.com/jquery/2.1.1/jquery.min.js"></script>
     <script type="text/javascript" src="./on_submit.js"></script>
 
 </head>
 <body>
 
-<form class="form-inline" action="" id="myForm" onSubmit="return judge()">
+
+
+<form class="form-inline" action="" id="myForm">
     <div class="form-group">
         <label class="sr-only" for="exampleInputName">姓名</label>
-        <input type="text" class="form-control1" id="exampleInputName" placeholder="姓名" maxlength="5" minlength="5">
+        <input type="text" class="form-control" id="exampleInputName" placeholder="姓名" maxlength="5">
         <label class="sr-only" for="exampleInputNumber">学号</label>
-        <input type="number" class="form-control2" id="exampleInputNumber" placeholder="学号">
+        <input type="number" class="form-control" id="exampleInputNumber" placeholder="学号">
         <label class="sr-only" for="exampleInputClass">班级</label>
-        <input type="text" class="form-control3" id="exampleInputClass" placeholder="班级">
+        <input type="text" class="form-control" id="exampleInputClass" placeholder="班级">
         <label class="sr-only" for="exampleInputNation">民族</label>
-        <input type="text" class="form-control4" id="exampleInputNation" placeholder="民族">
+        <input type="text" class="form-control" id="exampleInputNation" placeholder="民族">
         <label class="sr-only" for="exampleInputChinese">语文</label>
-        <input type="number" class="form-control5" id="exampleInputChinese" placeholder="语文">
+        <input type="number" class="form-control" id="exampleInputChinese" placeholder="语文">
         <label class="sr-only" for="exampleInputMaths">数学</label>
-        <input type="number" class="form-control6" id="exampleInputMaths" placeholder="数学">
+        <input type="number" class="form-control" id="exampleInputMaths" placeholder="数学">
         <label class="sr-only" for="exampleInputEnglish">英语</label>
-        <input type="number" class="form-control7" id="exampleInputEnglish" placeholder="英语">
+        <input type="number" class="form-control" id="exampleInputEnglish" placeholder="英语">
         <label class="sr-only" for="exampleInputProgram">编程</label>
-        <input type="number" class="form-control8" id="exampleInputProgram" placeholder="编程">
+        <input type="number" class="form-control" id="exampleInputProgram" placeholder="编程">
     </div>
     <button type="submit" class="btn btn-default" onclick="getInfor()">提交</button>
-</form>
+    <button type="button" class="getXinxi" onclick="seeIt()">显示</button>
 
+</form>
 <div>
-    <label class="reserach" for="exampleGetInf">查询多个学生成绩信息</label>
-    <input type="text" class="research" id="exampleGetInf" placeholder="输入学生学号">
+    <label class="sr-only" for="research">查询</label>
+    <input type="number" class="form-control" id="research" placeholder="输入学生学号">
+    <button type="button" class="researchInf" onclick="researchInf()">显示</button>
 </div>
-    <button type="submit" >查询</button>
+<table class="infor" id="exampleSee">
+
+</table>
 
 
 </body>
