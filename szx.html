@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>学生成绩单</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="http://sandbox.runjs.cn/uploads/rs/499/ixc5vbvz/sweetalert.css"/>
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+    <script src="http://sandbox.runjs.cn/uploads/rs/499/ixc5vbvz/sweetalert.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/选项卡.js"></script>
+    <script src="bootstrap-3.3.7-dist/js/printinfo.js"></script>
+    <script src="bootstrap-3.3.7-dist/layer/layer.js"></script>
+    <style>
+        .btn_fa{
+            width: 100%;
+            height: 30px;
+            text-align: center;
+        }
+        .btn btn-primary{
+            width: 90px;
+            margin: 6px auto;
+            background-color: #26ffee;
+            border-radius: 3px;
+        }
+        .search_box{
+            margin: 15px 0;
+        }
+        .form-group{
+            margin:20px 0;
+        }
+        .btn btn-default{
+            background-color: rgba(33,15,255,0.88)!important;
+        }
+        .del{
+            float: right;
+            margin-top: 10px;
+            margin-right: 20px;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="page-header">
+    <h1>学生成绩管理
+    </h1>
+</div>
+<ul id="myTab" class="nav nav-tabs">
+    <li class="active"><a href="#home" data-toggle="tab">成绩录入</a></li>
+    <li><a href="#tab_search" data-toggle="tab">成绩管理</a></li>
+</ul>
+<div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade in active" id="home">
+        <form id="stuinfo" class="bs-example bs-example-form" role="form" method="post" onsubmit="add_stuinfo()">
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">姓名</span>
+                        <input type="text" id="name" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" class="form-control" placeholder="请输入你的名字" required>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">学号</span>
+                        <input type="text" id="studentId" onkeyup="value=value.replace(/[^\w\.\/]/ig,'')" class="form-control" placeholder="请输入你的学号" required>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">民族</span>
+                        <input type="text" id="nation" onkeyup="value=value.replace(/[^\u4E00-\u9FA5]/g,'')" class="form-control" placeholder="请输入你的民族" required>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">班级</span>
+                        <input type="text" id="stuclass" class="form-control" placeholder="请输入你的班级" required>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">数学</span>
+                        <input type="number" id="math" class="form-control" min="0" max="150" placeholder="请输入你的数学成绩" required>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">语文</span>
+                        <input type="number" id="chinese" class="form-control" min="0" max="150" placeholder="请输入你的语文成绩" required>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">英语</span>
+                        <input type="number" id="english" class="form-control" min="0" max="150" placeholder="请输入你的英语成绩" required>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">编程</span>
+                        <input type="number" id="program" class="form-control" min="0" max="150" placeholder="请输入你的编程成绩" required>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_fa">
+                <input id="btn_submitinfo" type="submit" class="btn btn-primary" value="录入信息">
+            </div>
+        </form>
+    </div>
+    <div class="tab-pane fade" id="tab_search">
+        <div class="col-lg-6">
+            <div class="input-group">
+                <input type="text" id="search_stuno" class="form-control" placeholder="请输入要查询的学号(若要查询多个，请用‘,’分隔)">
+                <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" onclick="search()">查询</button>
+                    </span>
+            </div>
+        </div>
+        <div class="del">
+            <button class="btn btn-danger" onclick="deleteAllItem()">删除全部</button>
+        </div>
+        <table class="table table-striped">
+            <thead>
+            <tr style="background-color: rgba(42,69,61,0.14)">
+                <th>姓名</th>
+                <th>学号</th>
+                <th>数学</th>
+                <th>语文</th>
+                <th>英语</th>
+                <th>编程</th>
+                <th>平均分</th>
+                <th>总分</th>
+                <th>管理</th>
+            </tr>
+            </thead>
+            <tbody id="find_result">
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
